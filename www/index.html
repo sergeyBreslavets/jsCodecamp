@@ -1,0 +1,291 @@
+<script type="text/javascript">
+function palindrome(str) {
+    str = str.replace(/[\W_]/g, '').toLowerCase();
+    str = str.toLowerCase();
+    var arr = str.split('');
+    var arr2 = str.split('');
+    arr2 = arr2.reverse();
+
+    for (var i = 0; i < arr2.length; i++) {;
+        if (arr[i] != arr2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function palindrome2(str) {
+    var normalizedStr = str.replace(/[\W_]/g, '').toLowerCase();
+
+
+    return normalizedStr === reverseStr;
+}
+var str = "0_0 (: /-\ :) 0-0";
+
+function titleCase(str) {
+    str = str.toLowerCase();
+    var arr = str.split(' ');
+    for (var i = 0; i < arr.length; i++) {
+        var newc = arr[i].charAt(0).toUpperCase();
+        var arrin = arr[i].split('');
+        arrin[0] = newc;
+
+
+        arr[i] = arrin.join();
+    }
+    str = arr.join(' ');
+    return str;
+}
+
+
+function largestOfFour(arr) {
+    // You can do this!
+    var newarr = [];
+    for (var i = 0; i < arr.length; i++) {
+        var max = arr[i][0];
+        for (var j = 1; j < arr[i].length; j++) {
+            if (arr[i][j] > max) {
+                max = arr[i][j];
+            }
+
+        }
+        newarr.push(max);
+    }
+
+}
+
+function end(str, target) {
+    // "Never give up and good luck will find you."
+    // -- Falcor
+    var myarr = str.split(' ');
+    var len = myarr[myarr.length - 1].length;
+    var lentarg = target.length;
+
+    var res = myarr[myarr.length - 1].substr(len - lentarg);
+    if (res == target) {
+        return true;
+    }
+
+
+
+    return false;
+}
+
+// end("Bastian", "n");
+
+
+function repeat(str, num) {
+    // repeat after me
+    if (num <= 0 || str.length == 0) {
+        return '';
+    }
+    for (var i = 0; i < num; i++) {
+        str = str + str;
+    };
+
+    return str;
+
+}
+
+//repeat("abc", 3);
+
+function truncate(str, num) {
+
+    // Clear out that junk in your trunk
+    var len = str.length;
+  //  console.log(len);
+  //  console.log(num);
+    if (len >= num) {
+        if (num > 3) {
+            str = str.slice(0, num - 3);
+
+            str = str + '...';
+
+            return str;
+        } else {
+            str = str.slice(0, num);
+
+            str = str + '...';
+            return str;
+        }
+    } else {
+        return str;
+    }
+}
+
+//console.log(truncate("A-tisket a-tasket A green and yellow basket", 11));
+
+function chunk(arr, size) {
+    // Break it up. 
+    var newarr = [];
+    if (arr.length > size) {
+        var kolArr = arr.length / size;
+        console.log(kolArr);
+            var nach = 0;
+            var kon = size;
+			        for (var i = 0; i < kolArr; i++) {
+					            var arrin = [];
+					            
+					            for (var j = nach; j < kon; j++) {
+					                			arrin.push(arr[j]);
+					                			console.log(arr[j]);
+					            }
+					            newarr.push(arrin);
+                                console.log(newarr);
+					            nach = kon;
+					            kon = kon + size;
+					            console.log(nach );
+					            console.log(kon);
+					            if (kon>arr.length) {
+					                kon = arr.length;
+					            } 
+			        };
+
+    }
+    return newarr;
+}
+
+//chunk(["a", "b", "c", "d", "c", "d"], 2);
+
+
+
+function slasher(arr, howMany) {
+  // it doesn't always pay to be first
+     var len= arr.length;
+     arr= arr.slice(howMany-1, len);
+  return arr;
+}
+
+//slasher([1, 2, 3], 2);
+
+function mutation(arr) {
+   var arrseach= arr[1].toLowerCase();
+   var whereseah= arr[0].toLowerCase();
+
+  var chararr=arrseach.split('');
+   for (var i = 0; i < chararr.length; i++) {
+   	        if (whereseah.indexOf(chararr[i]) == -1){
+   	        	return false;
+   	        }
+   };
+
+
+  return true;
+}
+
+//mutation(["hello", "hey"]);
+
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+
+  var newarr = arr.filter(function(element) {
+
+  	if ( (element ==false) || (element == null) || (element ==0) || (element =="") || (element ==undefined) || (element+"." =='NaN.'  ) ) {
+  return false;} else{
+  return true; }
+   
+}); 
+
+  console.log(newarr)
+  return newarr;
+}
+
+//console.log(bouncer([7, "ate", "", false, ,NaN, 9]));
+
+function destroyer(arr) {
+  var args = Array.prototype.slice.call(arguments);
+ var  destrArr = args[0];
+ var  elementArr=[];  
+ for (var i = 1; i < args.length; i++) {
+ 	elementArr[i-1]=args[i];
+ };
+
+  var newArr= destrArr.filter(
+    function(element){
+    	for (var i = 0; i < elementArr.length; i++) {
+    		if(elementArr[i]==element) {
+    			return false;
+    		}
+    	}
+    	return true;
+    }); 
+  return newArr;
+}
+
+//console.log(destroyer( [1, 2, 3, 1, 2, 3], 2, 3 ));
+
+function where(arr, num) {
+  // Find my place in this sorted array.
+  arr=arr.sort();
+   console.log(arr); 
+   for (var i = 0; i < arr.length-1; i++) {
+   	     console.log(i); 
+         console.log(arr[i]); 
+       if (num==arr[i]) {return i};
+       	 if (num==arr[i+1]) {return i+1};
+
+       	if (num>arr[i] & num<arr[i+1]) {            
+return i+1;
+       	}
+
+   };
+      
+  return arr.length-1;
+}
+
+//where([40,10,20, 60], 50);
+function sumAll(arr) {
+  var max=Math.max.apply(null, arr);
+  var min=Math.min.apply(null, arr);
+  var sum=0;
+  for (var i=min; i<=max; i++){
+    sum=sum+i;
+  }
+  return sum;
+}
+
+// console.log(sumAll([1, 4]));
+
+
+function diff(arr1, arr2) {
+  var newArr = [];
+  // Same, same; but different.
+
+   console.log(arr1);
+   console.log(arr2);
+  var newarr1= arr1.filter(function(element){
+  	for (var i = 0; i < arr2.length; i++) {
+  		if(arr2[i]==element) {return false; }  
+  	};
+  	return true;
+  });
+  var newarr2= arr2.filter(function(element){
+  	for (var i = 0; i < arr1.length; i++) {
+  		if(arr1[i]==element) {return false; }  
+  	};
+  	return true;
+  });
+     
+   console.log(newarr1);
+   console.log(newarr2);
+newArr= newarr1.concat(newarr2);
+console.log(newArr);
+   return newArr;
+}
+
+//console.log(diff([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+
+
+
+
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>home-work</title>
+</head>
+<body>
+	<h1>ОТВЕТЫ В КОНСОЛЕ возможно</h1>
+</body>
+</html>
