@@ -93,8 +93,8 @@ function truncate(str, num) {
 
     // Clear out that junk in your trunk
     var len = str.length;
-  //  console.log(len);
-  //  console.log(num);
+    //  console.log(len);
+    //  console.log(num);
     if (len >= num) {
         if (num > 3) {
             str = str.slice(0, num - 3);
@@ -121,25 +121,25 @@ function chunk(arr, size) {
     if (arr.length > size) {
         var kolArr = arr.length / size;
         console.log(kolArr);
-            var nach = 0;
-            var kon = size;
-			        for (var i = 0; i < kolArr; i++) {
-					            var arrin = [];
-					            
-					            for (var j = nach; j < kon; j++) {
-					                			arrin.push(arr[j]);
-					                			console.log(arr[j]);
-					            }
-					            newarr.push(arrin);
-                                console.log(newarr);
-					            nach = kon;
-					            kon = kon + size;
-					            console.log(nach );
-					            console.log(kon);
-					            if (kon>arr.length) {
-					                kon = arr.length;
-					            } 
-			        };
+        var nach = 0;
+        var kon = size;
+        for (var i = 0; i < kolArr; i++) {
+            var arrin = [];
+
+            for (var j = nach; j < kon; j++) {
+                arrin.push(arr[j]);
+                console.log(arr[j]);
+            }
+            newarr.push(arrin);
+            console.log(newarr);
+            nach = kon;
+            kon = kon + size;
+            console.log(nach);
+            console.log(kon);
+            if (kon > arr.length) {
+                kon = arr.length;
+            }
+        };
 
     }
     return newarr;
@@ -150,182 +150,255 @@ function chunk(arr, size) {
 
 
 function slasher(arr, howMany) {
-  // it doesn't always pay to be first
-     var len= arr.length;
-     arr= arr.slice(howMany-1, len);
-  return arr;
+    // it doesn't always pay to be first
+    var len = arr.length;
+    arr = arr.slice(howMany - 1, len);
+    return arr;
 }
 
 //slasher([1, 2, 3], 2);
 
 function mutation(arr) {
-   var arrseach= arr[1].toLowerCase();
-   var whereseah= arr[0].toLowerCase();
+    var arrseach = arr[1].toLowerCase();
+    var whereseah = arr[0].toLowerCase();
 
-  var chararr=arrseach.split('');
-   for (var i = 0; i < chararr.length; i++) {
-   	        if (whereseah.indexOf(chararr[i]) == -1){
-   	        	return false;
-   	        }
-   };
+    var chararr = arrseach.split('');
+    for (var i = 0; i < chararr.length; i++) {
+        if (whereseah.indexOf(chararr[i]) == -1) {
+            return false;
+        }
+    };
 
 
-  return true;
+    return true;
 }
 
 //mutation(["hello", "hey"]);
 
 function bouncer(arr) {
-  // Don't show a false ID to this bouncer.
+    // Don't show a false ID to this bouncer.
 
-  var newarr = arr.filter(function(element) {
+    var newarr = arr.filter(function(element) {
 
-  	if ( (element ==false) || (element == null) || (element ==0) || (element =="") || (element ==undefined) || (element+"." =='NaN.'  ) ) {
-  return false;} else{
-  return true; }
-   
-}); 
+        if ((element == false) || (element == null) || (element == 0) || (element == "") || (element == undefined) || (element + "." == 'NaN.')) {
+            return false;
+        } else {
+            return true;
+        }
 
-  console.log(newarr)
-  return newarr;
+    });
+
+    console.log(newarr)
+    return newarr;
 }
 
 //console.log(bouncer([7, "ate", "", false, ,NaN, 9]));
 
 function destroyer(arr) {
-  var args = Array.prototype.slice.call(arguments);
- var  destrArr = args[0];
- var  elementArr=[];  
- for (var i = 1; i < args.length; i++) {
- 	elementArr[i-1]=args[i];
- };
+    var args = Array.prototype.slice.call(arguments);
+    var destrArr = args[0];
+    var elementArr = [];
+    for (var i = 1; i < args.length; i++) {
+        elementArr[i - 1] = args[i];
+    };
 
-  var newArr= destrArr.filter(
-    function(element){
-    	for (var i = 0; i < elementArr.length; i++) {
-    		if(elementArr[i]==element) {
-    			return false;
-    		}
-    	}
-    	return true;
-    }); 
-  return newArr;
+    var newArr = destrArr.filter(
+        function(element) {
+            for (var i = 0; i < elementArr.length; i++) {
+                if (elementArr[i] == element) {
+                    return false;
+                }
+            }
+            return true;
+        });
+    return newArr;
 }
 
 //console.log(destroyer( [1, 2, 3, 1, 2, 3], 2, 3 ));
 
 function where(arr, num) {
-  // Find my place in this sorted array.
-  arr=arr.sort();
-   console.log(arr); 
-   for (var i = 0; i < arr.length-1; i++) {
-   	     console.log(i); 
-         console.log(arr[i]); 
-       if (num==arr[i]) {return i};
-       	 if (num==arr[i+1]) {return i+1};
+    // Find my place in this sorted array.
+    arr = arr.sort();
+    console.log(arr);
+    for (var i = 0; i < arr.length - 1; i++) {
+        console.log(i);
+        console.log(arr[i]);
+        if (num == arr[i]) {
+            return i
+        };
+        if (num == arr[i + 1]) {
+            return i + 1
+        };
 
-       	if (num>arr[i] & num<arr[i+1]) {            
-return i+1;
-       	}
+        if (num > arr[i] & num < arr[i + 1]) {
+            return i + 1;
+        }
 
-   };
-      
-  return arr.length-1;
+    };
+
+    return arr.length - 1;
 }
 
 //where([40,10,20, 60], 50);
 function sumAll(arr) {
-  var max=Math.max.apply(null, arr);
-  var min=Math.min.apply(null, arr);
-  var sum=0;
-  for (var i=min; i<=max; i++){
-    sum=sum+i;
-  }
-  return sum;
+    var max = Math.max.apply(null, arr);
+    var min = Math.min.apply(null, arr);
+    var sum = 0;
+    for (var i = min; i <= max; i++) {
+        sum = sum + i;
+    }
+    return sum;
 }
 
 // console.log(sumAll([1, 4]));
 
 
 function diff(arr1, arr2) {
-  var newArr = [];
-  // Same, same; but different.
+    var newArr = [];
+    // Same, same; but different.
 
-   console.log(arr1);
-   console.log(arr2);
-  var newarr1= arr1.filter(function(element){
-  	for (var i = 0; i < arr2.length; i++) {
-  		if(arr2[i]==element) {return false; }  
-  	};
-  	return true;
-  });
-  var newarr2= arr2.filter(function(element){
-  	for (var i = 0; i < arr1.length; i++) {
-  		if(arr1[i]==element) {return false; }  
-  	};
-  	return true;
-  });
-     
-   console.log(newarr1);
-   console.log(newarr2);
-newArr= newarr1.concat(newarr2);
-console.log(newArr);
-   return newArr;
+    console.log(arr1);
+    console.log(arr2);
+    var newarr1 = arr1.filter(function(element) {
+        for (var i = 0; i < arr2.length; i++) {
+            if (arr2[i] == element) {
+                return false;
+            }
+        };
+        return true;
+    });
+    var newarr2 = arr2.filter(function(element) {
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr1[i] == element) {
+                return false;
+            }
+        };
+        return true;
+    });
+
+    console.log(newarr1);
+    console.log(newarr2);
+    newArr = newarr1.concat(newarr2);
+    console.log(newArr);
+    return newArr;
 }
 
 //console.log(diff([1, 2, 3, 5], [1, 2, 3, 4, 5]));
 
- function convert(num) {
+function convert(num) {
 
-  var arrNum = [
-0,1,2,3,4,5,6,7,8,9,
-10,20,30,40,5,60,70,80,90,
-100,200,300,400,500,600,700,800,900,
-1000
-  ]; 
+    var arrNum = [
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+        10, 20, 30, 40, 5, 60, 70, 80, 90,
+        100, 200, 300, 400, 500, 600, 700, 800, 900,
+        1000
+    ];
 
-  var arrRom= [
-"","I","II","III","IV","V","VI","VII","VIII","IX",
-"X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
-"C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
-"M"
-  ];
-var numRoman=[];
-   
-var ost=0
-var por=1;
-while(num>0){
-ost=num % 10;
+    var arrRom = [
+        "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
+        "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC",
+        "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM",
+        "M"
+    ];
+    var numRoman = [];
 
-console.log(ost);
-if (ost>0) {
-num= Math.ceil(num/10)-1;
-ost=ost*por;
-numRoman.push(arrRom[arrNum.indexOf(ost)]);
-} else
-{
-  num= Math.ceil(num/10);
+    var ost = 0;
+    var por = 1;
+    while (num > 0) {
+        ost = num % 10;
+
+        console.log(ost);
+        if (ost > 0) {
+            num = Math.ceil(num / 10) - 1;
+            ost = ost * por;
+            numRoman.push(arrRom[arrNum.indexOf(ost)]);
+        } else {
+            num = Math.ceil(num / 10);
+        }
+        por = por * 10;
+
+    }
+    numRoman = numRoman.reverse();
+    numRoman = numRoman.join('');
+
+
+    return numRoman;
 }
-por=por*10;
 
+//console.log(convert(501));
+
+function myReplace(str, before, after) {
+
+ var arrWord= str.split(" ");
+ var arrWordTemp =arrWord;
+ var searchWord= arrWordTemp.indexOf(before);
+ if (searchWord>0){ 
+ 
+      if(arrWord[searchWord][0]==arrWord[searchWord][0].toLowerCase() ) {
+
+         
+         var arrAfter =after.split('');
+         arrAfter[0]=arrAfter[0].toLowerCase();
+         after=arrAfter.join('');
+
+      }  else
+      {  
+         var arrAfter =after.split('');
+         arrAfter[0]=arrAfter[0].toUpperCase();
+         after=arrAfter.join('');
+      } 
+      
+      var newstr=str.replace(before, after );
+ }
+
+ return newstr;
 }
-numRoman=numRoman.reverse();
-numRoman=numRoman.join('');
 
+//console.log(myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped"));
+function translate(str) {
+  var arrChart  = str.toLowerCase().split('');
+  var arrVowels =  [ "a",  "e", "i", "o", "u", "y"]; 
+  if (arrVowels.indexOf(arrChart[0]) >0 ) {
+    str=arrChart.join('');
+    str=str+'way';
+  
+  } else
+  {
+   var tempArrChart=[];
+    if (arrVowels.indexOf(arrChart[1]) <0 ) {
+    
+   start=2;
+    }else start =1;
+   for (var i = start; i < arrChart.length; i++) {
+       tempArrChart.push(arrChart[i]);
+   }; 
+   tempArrChart.push(arrChart[0]);
+   if (arrVowels.indexOf(arrChart[1]) <0 ) {
+    
+    tempArrChart.push(arrChart[1]);
+    }
+   tempArrChart.push("a");
+   tempArrChart.push("y");
+   str=tempArrChart.join('');
+  }
 
- return numRoman;
+ return str;
 }
 
-console.log(convert(501));
+console.log(translate("onsonant"));
+
 
 </script>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>home-work</title>
+    <meta charset="UTF-8">
+    <title>home-work</title>
 </head>
+
 <body>
-	<h1>ОТВЕТЫ В КОНСОЛЕ возможно</h1>
+    <h1>ОТВЕТЫ В КОНСОЛЕ возможно</h1>
 </body>
+
 </html>
