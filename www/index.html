@@ -358,7 +358,8 @@ function myReplace(str, before, after) {
 function translate(str) {
   var arrChart  = str.toLowerCase().split('');
   var arrVowels =  [ "a",  "e", "i", "o", "u", "y"]; 
-  if (arrVowels.indexOf(arrChart[0]) >0 ) {
+  console.log(arrChart);
+  if (arrVowels.indexOf(arrChart[0]) >=0 ) {
     str=arrChart.join('');
     str=str+'way';
   
@@ -385,8 +386,100 @@ function translate(str) {
  return str;
 }
 
-console.log(translate("onsonant"));
+//console.log(translate("algorithm"));
+function pair(str) {
+var arrPars= [ ["A","T"], ["T","A"],  ["C","G"], ["G","C"]];
+var arrOnePars= ["A","T","C","G"];
+var arrDnaOne= str.split('');
+var DNA=[];
+for (var i = 0; i < arrDnaOne.length; i++) {
+    DNA.push(arrPars(arrOnePars.indexOf(arrDnaOne[i]))); 
+};
+ return DNA;
+}
 
+//pair("GCG");
+
+function fearNotLetter(str) {
+  var Alfavit = [
+    'a' ,'b', 'c', 'd', 'e', 'f', 'g',
+    'h', 'i', 'j', 'k', 'l', 'm', 'n',
+    'o', 'p', 'q', 'r', 's', 't', 'u',
+    'v', 'w', 'x', 'y', 'z'
+  ];
+   
+  var arrChart= str.split('');
+  var start   = Alfavit.indexOf(arrChart[0]);
+  var end     = Alfavit.indexOf(arrChart[arrChart.length-1]);
+
+  for (var i = start;  i < end; i++) {
+      if (Alfavit[i] != arrChart[i-start]) {
+        return Alfavit[i];
+
+      }  
+  };
+  str= undefined;
+  return str;
+}
+
+//console.log(fearNotLetter("abce"));
+function boo(bool) {
+  // What is the new fad diet for ghost developers? The Boolean.
+  if (bool==false || bool== true ) {
+    return true;
+  }
+   else{
+  return false;}
+}
+
+boo(null);
+
+function unite(arr1, arr2, arr3) {
+  var args = Array.prototype.slice.call(arguments);
+  var myArr=args;
+  for (var i = 0; i < myArr.length; i++) {
+        for (var j = i+1; j < myArr.length; j++) {
+          var temparr = myArr[j];
+          for (var ii = 0; ii < myArr[i].length; ii++) {
+            
+         
+          if (myArr[j].indexOf(myArr[i][ii]) >= 0) {
+           
+               
+
+
+
+ };
+          
+            
+
+
+  };  
+
+
+  };
+     
+  console.log(myArr);
+
+
+
+  return arr1;
+}
+
+//unite([1, 3, 2], [[5], 2, 1, 4], [2, 1]);
+
+ function convert2(str) {
+  // &colon;&rpar;
+  var arrSymbol = ["&", "<", ">", '"' , "'"] ;
+  var arrSymbolReplase=["&amp;" , "&lt;", "&gt;", "&quot;", "&apos;"];
+  for (var i = 0; i < str.length; i++) {
+    str=str.replace(/arrSymbol[i]/g, arrSymbolReplase[i] );
+  };
+  console.log(str);
+  return str;
+}
+
+convert2("Dolce & Gabbana");
 
 </script>
 <!DOCTYPE html>
