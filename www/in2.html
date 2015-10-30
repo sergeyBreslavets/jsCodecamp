@@ -1,0 +1,97 @@
+<script type="text/javascript">
+	 function convert(str) {
+  // &colon;&rpar;
+  var arrSymbol = ["&", "<", ">", '"' , "'"] ;
+  var arrSymbolReplase=["&amp;" , "&lt;", "&gt;", "&quot;", "&apos;"];
+   str=str.replace(/"/ig, ' " ');
+   str=str.replace(/'/ig, " ' ");
+  var arrChart= str.split(' ');
+
+  console.log(arrChart);
+  for (var i = 0; i < str.length; i++) {
+        if (arrSymbol.indexOf(arrChart[i]) >= 0 )  {
+            arrChart[i]=arrSymbolReplase[arrSymbol.indexOf(arrChart[i])];
+        }
+      }
+
+  str=arrChart.join(' ');  
+  return str;
+};
+
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+ 
+  var MYaRR=str.split(''); 
+ 
+  console.log(MYaRR);
+  MYaRR.forEach(function(item, i, MYaRR) {
+  	  var regex = /[A-Z]/;
+  	  var match = regex.exec(item);
+       if(match != null){
+            MYaRR[i]=' '+item;
+           console.log(item);
+      } 
+  	  
+   });
+   console.log(MYaRR);
+  str=MYaRR.join('');
+  if (str[0]==" "){
+  str=str.substring(1,str.length);}
+
+  console.log(str);
+  str=str.toLowerCase(); 
+  str=str.replace(/_/g, "-");
+  str=str.replace(/\s/g, "-");
+  str=str.replace(/--/g, "-");
+
+  return str;
+}
+
+// console.log(spinalCase('This Is Spinal Tap'));
+// console.log(spinalCase("aZZZAAaaaaa"));
+// console.log(spinalCase('thisIsSpinalTap'));
+
+function sumFibs(num) {
+	console.log(num);
+	var befNum=1;
+	var numnow=1;
+	var nextNum=numnow+befNum;
+	var masFib=[];
+	masFib.push(numnow);
+	masFib.push(numnow);
+	while((num>numnow & num<nextNum) ||  (num>numnow)){
+	   befNum=numnow;
+       numnow=nextNum;
+       nextNum=numnow+befNum;
+   
+       masFib.push(numnow);
+	}
+    numnow=0;
+    console.log(masFib);
+
+    var masfibODD=[];
+    var massumodd=[];
+    for (var i = 0; i < masFib.length; i++) {
+
+		if(!(masFib[i]% 2 == 0)){masfibODD.push(masFib[i]);}
+	}
+    console.log(masfibODD);
+     
+
+	for (var i = 0; i < masfibODD.length; i++) {
+		  numnow=numnow+masfibODD[i];
+	
+	}
+	if (masfibODD.indexOf(num)>=0) {
+		return numnow;
+	} else {
+		return numnow-masfibODD[masfibODD.length-1];
+	}
+  
+}
+
+console.log(sumFibs(4000000));
+console.log(sumFibs(75024));
+console.log(sumFibs(75025));
+</script>
