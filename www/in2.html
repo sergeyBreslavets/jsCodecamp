@@ -202,7 +202,7 @@ function binaryAgent(str) {
     for (var j = 0; j < arrChart[i].length; j++) {
       chislo=chislo+ arrChart[i][j]* Math.pow(2, j);
     };
-    console.log(chislo);
+  
     arrChart[i]=chislo;
   };
 
@@ -215,5 +215,49 @@ function binaryAgent(str) {
 }
 
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+function every(collection, pre) {
+  // Is everyone being true?
+     var result=true;
+    for (var i = 0; i < collection.length; i++) {
+      console.log(Object.keys(collection[i]));
+        var masObj=Object.keys(collection[i]);
+        if (masObj.indexOf(pre)<0){
+          result= false;
+          return result;
+        }  
+        if(collection[i][pre]==null) {
+          result= false;
+            console.log("null");
+          return result;
+        }
+         if(collection[i][pre]=="") {
+          result= false;
+            console.log("''");
+          return result;
+        }
+          if(collection[i][pre]==undefined) {
+          result= false;
+  console.log("unde");
+          return result;
+        }
+       if (collection[i][pre]==null) {
+          result= false;
+            console.log("null");
+          return result;
+      }
+        if (collection[i][pre] !==collection[i][pre] ) {
+          result= false;
+          console.log("nan");
+           console.log(collection[i]);
+          return result;
+      }
+    };
+
+
+
+  return result;
+}
+
+console.log(every([{"user": "Tinky-Winky",  "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
 
 </script>
