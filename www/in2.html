@@ -192,5 +192,28 @@ function steamroller(arr) {
   return arr;
 }
 
-console.log(steamroller([1, [], [3, [[4]]]]));
+//console.log(steamroller([1, [], [3, [[4]]]]));
+function binaryAgent(str) {
+  var arrChart= str.split(' ');
+  for (var i = 0; i < arrChart.length; i++) {
+    arrChart[i]=arrChart[i].split('');
+    arrChart[i]=arrChart[i].reverse();
+    var chislo=0;
+    for (var j = 0; j < arrChart[i].length; j++) {
+      chislo=chislo+ arrChart[i][j]* Math.pow(2, j);
+    };
+    console.log(chislo);
+    arrChart[i]=chislo;
+  };
+
+  for (var i = 0; i < arrChart.length; i++) {
+    arrChart[i]=String.fromCharCode(arrChart[i]);
+  };
+  str=arrChart.join('');
+  console.log(str);
+  return str;
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
 </script>
